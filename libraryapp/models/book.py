@@ -1,13 +1,17 @@
 from django.db import models
+from .library import Library
+from .librarian import Librarian
 
-class Library(models.Model):
+class Book(models.Model):
 
     Title = models.CharField(max_length=50),
     ISBN_Number = models.CharField(max_length=50),
     Author = models.CharField(max_length=50),
-    Year_Published= models.IntegerField()
+    Year_Published= models.IntegerField(),
+    location = models.ForeignKey(Library, on_delete=models.CASCADE)
+    librarian = models.ForeignKey(Librarian, on_delete=models.CASCADE)
 
-    class Book:
+    class Meta:
         verbose_name = ("")
         verbose_name_plural = ("s")
 
