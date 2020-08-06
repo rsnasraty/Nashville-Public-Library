@@ -20,6 +20,5 @@ from libraryapp.models import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('libraryapp.urls')),
-    path('librarians/', librarian_list, name='librarians'),
+    path('', include('libraryapp.urls'))
 ]
