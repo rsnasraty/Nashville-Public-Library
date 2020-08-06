@@ -9,25 +9,25 @@ def library_list(request):
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()
 
-            db_cursor.execute("""
-            select
-                l.id,
-                l.title,
-                l.address,
-            from libraryapp_library l
-            join auth_user u on l.user_id = u.id
-            """)
+        db_cursor.execute("""
+        select
+            l.id,
+            l.title,
+            l.address,
+        from libraryapp_library l
+        join auth_user u on l.user_id = u.id
+        """)
 
         all_libraries = []
         dataset = db_cursor.fetchall()
 
-        for row in dataset:
-            library = Library()
-            library.id = row["id"]
-            library.title = row["title"]
-            library.address = row["address"]
+    for row in dataset:
+        library = Library()
+        library.id = row["id"]
+        library.title = row["title"]
+        library.address = row["address"]
 
-            all_libraries.append(library)
+        all_libraries.append(library)
 
     template_name = 'libraries/list.html'
 
