@@ -1,7 +1,7 @@
 {
     "sqltools.connections": [
         {
-            "database": "db.sqlite3",
+            "database": "${workspaceFolder:libraryproject}/db.sqlite3",
             "driver": "SQLite",
             "name": "librarytesting",
             "previewLimit": 50
